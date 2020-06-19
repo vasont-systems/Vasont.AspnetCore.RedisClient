@@ -10,8 +10,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <Copyright>Copyright (c) 2020, GlobalLink Vasont.</Copyright>
-    <PackageReleaseNotes>Initial release. Made a minor enhancement to the service extensions to support both IDistributedCache and IAdvancedDistributedCache Singlton for DI</PackageReleaseNotes>
-    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Added JSON serialization and deserialization extensions for IDistributedCache interface. This provides a shorthand extension methods for set/get objects in Cache.</PackageReleaseNotes>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
