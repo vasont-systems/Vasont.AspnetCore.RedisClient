@@ -34,12 +34,47 @@ namespace Vasont.AspnetCore.RedisClient
         /// <param name="key">Contains the key of the cache item to set.</param>
         /// <param name="item">Contains the item to convert to JSON.</param>
         /// <param name="options">Contains an optional cache entry options.</param>
+        /// <returns></returns>
+        public static void SetJson(this IDistributedCache cache, string key, object item, DistributedCacheEntryOptions options = null)
+        {
+            string content = JsonConvert.SerializeObject(item);
+            cache.SetString(key, content, options);
+        }
+
+        /// <summary>
+        /// This method is used to set an object into cache as a JSON converted string.
+        /// </summary>
+        /// <param name="cache">Contains the cache to extend.</param>
+        /// <param name="key">Contains the key of the cache item to set.</param>
+        /// <param name="item">Contains the item to convert to JSON.</param>
+        /// <param name="options">Contains an optional cache entry options.</param>
         /// <param name="token">Contains an optional cancellation token.</param>
         /// <returns></returns>
         public static async Task SetJsonAsync(this IDistributedCache cache, string key, object item, DistributedCacheEntryOptions options = null, CancellationToken token = default)
         {
             string content = JsonConvert.SerializeObject(item);
             await cache.SetStringAsync(key, content, options, token);
+        }
+
+        /// <summary>
+        /// This method is used to get an object from stored as JSON in cache and convert it back to an object.
+        /// </summary>
+        /// <typeparam name="T">Contains the strong type of the object.</typeparam>
+        /// <param name="cache">Contains the cache to extend.</param>
+        /// <param name="key">Contains the key of the object to find.</param>
+        /// <returns></returns>
+        public static T GetJson<T>(this IDistributedCache cache, string key)
+        {
+            T result = default;
+
+            string content = cache.GetString(key);
+
+            if (!string.IsNullOrWhiteSpace(content))
+            {
+                result = JsonConvert.DeserializeObject<T>(content);
+            }
+
+            return result;
         }
 
         /// <summary>
