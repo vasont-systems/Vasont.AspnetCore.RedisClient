@@ -10,8 +10,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <Copyright>Copyright (c) 2020, GlobalLink Vasont.</Copyright>
-    <PackageReleaseNotes>Added JSON serialization and deserialization extensions for IDistributedCache interface. This provides a shorthand extension methods for set/get objects in Cache.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added additional JSON serialization and deserialization extensions for IDistributedCache interface.</PackageReleaseNotes>
     <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
